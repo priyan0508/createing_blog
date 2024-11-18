@@ -1,0 +1,22 @@
+<h3>id:<%= @article.id %></h3>
+
+<h1>Name:<%= @article.name %></h1>
+
+<h3>Age:<%= @article.age %></h3>
+
+<h3>Email:<%= @article.email %></h3>
+
+
+
+<ul>
+  <li><%= link_to "Edit", edit_article_path(@article) %></li>
+  <li><%= link_to "Delete", article_path(@article), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Bhai Pakka Kar Du?"
+                  } %></li>
+</ul>
+
+
+
+
+
