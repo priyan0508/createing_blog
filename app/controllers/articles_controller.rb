@@ -13,6 +13,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
+
     if @article.save
       redirect_to @article
     else
@@ -40,9 +41,8 @@ class ArticlesController < ApplicationController
   end
 
   private
+
   def article_params
-    # params.expect(article: [:name, :age, :email])
     params.require(:article).permit(:name, :age, :email)
   end
 end
-

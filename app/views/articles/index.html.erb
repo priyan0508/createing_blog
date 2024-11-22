@@ -1,16 +1,78 @@
+<style>
+  body  {
+     margin: 0;
+    padding: 0;
+    background-image: url("https://static.vecteezy.com/system/resources/previews/029/103/042/non_2x/colorful-mesh-gradient-background-with-bright-vibrant-color-and-abstract-wave-for-website-poster-magazine-postcard-or-aesthetic-design-vector.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+h1 {
+  font-size: 2.5rem;
+  color:powderblue;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.text button {
+  display: inline-block;
+  background-color: yellowgreen;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.text {
+  text-align: center;
+  margin-top: 30px;
+}
+table {
+  width: 40%;
+  margin: 50px auto;
+  background-color: blue;
+  border-radius: 8px;
+}
+th {
+  background-color: yellowgreen;
+  color: white;
+  font-weight: bold;
+}
+td{
+
+  background-color: powderblue;
+  text-align: center;
+}
+
+}
+
+</style>
+
+
 <h1>Articles</h1>
 
-<ul>
-  <% @articles.each do |article| %>
-    <li>
-        
-        <%= link_to article.name, article %>
-        <%= link_to article.age, article %>
-        <%= link_to article.email, article %> 
-        
-    </li>
-  <% end %>
-</ul>
 
-<%= link_to "New Article", new_article_path %>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <% @articles.each do |article| %>
+
+    <tr>
+        <td><%= link_to article.name, article %></td>
+        <td><%= link_to article.age, article %></td>
+        <td><%= link_to article.email, article %></td>
+    </tr>
+
+  <% end %>
+
+  </tbody>
+</table>
+
+<div class="text">
+  <button><%= link_to "New Article", new_article_path %></button>
+</div>
 
