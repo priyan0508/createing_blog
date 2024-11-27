@@ -36,6 +36,7 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article = Article.find(params[:id])
+    @article.comments.destroy_all
     @article.destroy
     redirect_to root_path, status: :see_other
   end
@@ -43,6 +44,6 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:name, :age, :email)
+    params.require(:article).permit(:name, :age, :email, :image)
   end
 end

@@ -41,7 +41,7 @@ td{
   text-align: center;
 }
 
-}
+
 
 </style>
 
@@ -55,6 +55,8 @@ td{
       <th>Name</th>
       <th>Age</th>
       <th>Email</th>
+      <th>Image</th>
+      <th>Buttons</th>
     </tr>
   </thead>
   <tbody>
@@ -65,6 +67,20 @@ td{
         <td><%= link_to article.name, article %></td>
         <td><%= link_to article.age, article %></td>
         <td><%= link_to article.email, article %></td>
+        <td class="img">
+          <% if article.image.attached? %>
+            <%= image_tag(article.image, size: "90x80") %>
+          <% else %>
+           <p> "No Image" </p>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to "Edit", edit_article_path(article) %>
+          <%= link_to "Delete", article_path(article), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Bhai Pakka Kar Du?"
+                  } %>
+        </td>
     </tr>
 
   <% end %>
